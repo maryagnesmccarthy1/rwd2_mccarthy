@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!--The viewport is automatically added to the html but this would be a place to check if the media query
+  size was not adjusting correctly on smaller device-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mary's Panda Page</title>
+
+  <style>
+/*Internal CSS was in original code for assignment*/
+/*This is first break point where the screen is responsive to the smallest device screen such
+as a mobile phone*/
+  /* =========================================
+     BASE STYLES (MOBILE FIRST)
+     These styles apply to small screens first.
+     Larger screens are handled later with media queries.
+     ========================================= */
+
+  /* Reset default spacing and set global text settings */
+  /*changed original background color to a light pink color*/
+  body {
+    margin: 0;                                  /* Removes browser default margin */
+    font-family: Arial, Helvetica, sans-serif;  /* Clean, readable sans-serif stack */
+    line-height: 1.6;                           /* Improves text readability */
+    background: #eea2a2;                         /* Light gray base background */
+  }
+
+  /* Container centers content and limits max width */
+  .container {
+    max-width: 1100px;     /* Stops content stretching too wide on big screens */
+    margin: 40px auto;     /* 40px top/bottom, auto left/right = centered */
+    padding: 20px;         /* Internal spacing */
+  }
+
+  /* Main heading */
+  /*main heading is centered on the page*/
+  h1 {
+    text-align: center;    /* Centers the heading */
+    margin: 0 0 8px;       /* No top margin, small space below */
+  }
+ 
+  /* Lead paragraph */
+  p.lead {
+    text-align: center;    /* Centers the intro text */
+    margin: 0 0 18px;      /* Space below paragraph */
+    color: #333;           /* Softer than pure black, still high contrast */
+  }
+
+  /* =========================================
+     RESPONSIVE IMAGE
+     ========================================= */
+     /*image displayed as centered*/
+  .rwd-img {
+    width: 100%;           /* Image fills its container width */
+    height: auto;          /* Keeps the original aspect ratio */
+    display: block;        /* Removes inline gap under the image */
+    border-radius: 12px;   /* Soft rounded corners */
+    margin-bottom: 18px;   /* Space below image */
+  }
+
+  /* =========================================
+     RESPONSIVE VIDEO
+     Wrapper holds a fixed 16:9 shape; the
+     video/iframe fills it completely.
+     ========================================= */
+
+ /*Responsive video (MP4 option): include a captions track for accessibility -->
+     <!--Video created of Panda at National Zoo by Mary McCarthy changed into mp4 using Adobe Express
+     which allowed me to change to mp4 format and generate captions from voices of zoo visitors commenting on the 
+     panda*/
+
+  .video-wrap {
+    width: 100%;           /* Full width of the container */
+    aspect-ratio: 16 / 9;  /* Modern way to lock a 16:9 ratio */
+    background: #000;      /* Fallback color while the video loads */
+    border-radius: 12px;   /* Rounded corners */
+    overflow: hidden;      /* Clips the video to the rounded edges */
+    margin-bottom: 24px;   /* Space below video */
+  }
+
+  .video-wrap video,
+  .video-wrap iframe {
+    width: 100%;           /* Fill the wrapper width */
+    height: 100%;          /* Fill the wrapper height */
+    border: 0;             /* Removes default iframe border */
+    display: block;        /* Removes inline gap */
+  }
+
+  /* =========================================
+     CARDS WRAPPER (MOBILE FIRST)
+     ========================================= */
+     /*code for four cards*/
+  .cards {
+    display: flex;            /* Flex container for the cards */
+    flex-wrap: wrap;          /* Lets cards wrap onto new rows */
+    flex-direction: column;   /* MOBILE FIRST: stack cards vertically */
+    gap: 20px;                /* Even spacing between cards */
+  }
+
+  /* Individual card */
+  .card {
+    background: #fff;         /* White card background */
+    border-radius: 12px;      /* Soft rounded corners */
+    padding: 16px;            /* Inner spacing */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .08); /* Subtle depth */
+  }
+
+  /* =========================================
+     BREAKPOINT 1: TABLET (600px and up)
+     ========================================= */
+  @media (min-width: 600px) {
+    body { background: #eef4ff; }   /* Confirms the tablet breakpoint is active */
+
+    .cards { flex-direction: row; } /* Switch from stacked to side-by-side */
+
+    .card { width: 48%; }           /* ~2 cards per row (48% leaves room for the gap) */
+  }
+
+  /* =========================================
+     BREAKPOINT 2: DESKTOP (900px and up)
+     ========================================= */
+
+    /*color change to media regular desktop 900 px original color change was to  light green I changed to beige*/
+  @media (min-width: 900px) {
+    body { background: rgb(160, 144, 105); }   /* Confirms the desktop breakpoint is active */
+
+    .card { width: 30%; }           /* ~3 cards per row (30% leaves room for the gap) */
+  }
+
+  /* =========================================
+     BREAKPOINT 3: LARGE DESKTOP (1200px and up)
+     ========================================= */
+     /*color change for opening to large desktop was originally pink I changed it to brown*/
+  @media (min-width: 1200px) {
+    body { background: rgb(92, 76, 76); }   /* Confirms the large-desktop breakpoint is active */
+
+    .container { padding: 28px; }   /* More breathing room on big screens */
+
+    .card { width: 22%; }           /* ~4 cards per row (22% leaves room for the gap) */
+  }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>The Life of a Panda</h1>
+    <p class="lead">A simple site that shows my love of pandas.</p>
+
+    <!-- Responsive image: alt text DESCRIBES the image, it does not say "image of" -->
+     <!--ChatGPT help with adding code for image-->
+     <!--image of panda along with alt caption for ADA compliance and fig caption with description-->
+    <img class="rwd-img"
+        src="images/panda.jpg" alt="Panda eating bamboo">
+     <figcaption>
+    Hungry Panda sticks out his tongue while eating bamboo.
+  </figcaption>
+
+
+<!--Chose to download my own video I had taken with my iPhone at DC Zoo of Panda. I used Adobe Express to convert to mp4-->
+<h2>Video of a panda taking a stroll around zoo enclosure.</h2>
+    <!-- Responsive video (MP4 option): include a captions track for accessibility -->
+     <!--Video created of Panda at National Zoo by Mary McCarthy changed into mp4 using Adobe Express
+     which allowed me to change to mp4 format and generate captions from voices of zoo visitors commenting on the 
+     panda-->
+     <!--UPDATE Important I had tried to use original video format but received error in GitHub that was too large
+     ChatGPT helped me trim video in QuickTime Player also changed file format from image to mov-->
+    <div class="video-wrap">
+      <video controls>
+        <source src="images/zoopandavideo.mov" type="video/mp4">
+        <track kind="captions" src="media/your-captions.vtt"
+               srclang="en" label="English" default>
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+  <1--I removed option for Youtube video code that was in this space-->
+
+
+<!--Fun Facts about Pandas came from National Geographic Kids website page titled: "10 Facts About Pandas!"-->
+<!--cards that include h2 for titles and paragraph text with interesting polar bear facts-->
+    <!-- Cards -->
+    <div class="cards">
+
+      <div class="card">
+        <h2>What is the Panda's scientific name?</h2>
+        <p>Ailuropoda melanoleuca which means black and white cat-foot.</p>
+      </div>
+
+      <div class="card">
+        <h2>Pandas are omnivores</h2>
+        <p>I always thought pandas were herbivores but pandas will sometimes eat small animals and fish. But main diet is bamboo.</p>
+      </div>
+
+      <div class="card">
+        <h2>Panda's do not hibernate</h2>
+        <p>Pandas that live in mountain areas will migrate down to warmer ranges when the winter gets too cold.</p>
+      </div>
+
+      <div class="card">
+        <h2>Panda populations are growing</h2>
+        <p>Pandas were once considered endangered and conservation efforts have helped increase the population.</p>
+      </div>
+
+    </div><!-- /.cards -->
+  </div><!-- /.container -->
+</body>
+</html>
